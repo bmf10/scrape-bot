@@ -12,7 +12,9 @@ const port = process.env.PORT || 8000
 app.use(json())
 app.use(urlencoded({ extended: false }))
 
-app.use(cors())
+app.use(
+  cors({ origin: 'https://tokomu.vercel.app', optionsSuccessStatus: 200 }),
+)
 
 app.get('/', (_req, res) => {
   res.send('Hello World!')
